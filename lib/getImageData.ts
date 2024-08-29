@@ -34,7 +34,7 @@ function cameraData(
     ret.ApertureValue = "f" + ApertureValue;
   }
   if (ShutterSpeed != undefined) {
-    ret.ShutterSpeed = ShutterSpeed;
+    ret.ShutterSpeed = "1/" + ShutterSpeed;
   }
   if (ISO != undefined) {
     ret.ISO = ISO;
@@ -59,7 +59,7 @@ export default async function getImageData(
             output.Make + " " + output.Model,
             output.Lens,
             output.FNumber,
-            output.ShutterSpeedValue,
+            Math.ceil(Math.pow(2, output.ShutterSpeedValue)).toString(),
             output.ISO,
             output.FocalLengthIn35mmFormat
           );
