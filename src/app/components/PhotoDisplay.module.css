@@ -1,0 +1,11 @@
+.meta-container {
+	padding-left: 40px;
+}
+.meta-container > * {
+	font-size: large;
+}
+
+.tag-container {
+	list-style: circle;
+	padding-left: 40px;
+}
