@@ -50,7 +50,7 @@ export default async function getImageData(
 ): Promise<CameraData> {
   return exifr
     .parse(
-      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/${imageId}.jpg`
+      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/${imageId}`
     )
     .then(
       (output) => {
