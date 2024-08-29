@@ -1,11 +1,14 @@
 import { supabase } from "@/supabase";
-import Image from "next/image";
+import PhotoDisplay from "./components/PhotoDisplay";
 
 export default async function Home() {
-  const { data, error } = await supabase.storage.from("images").list("folder", {
-    limit: 100,
-    offset: 0,
-    sortBy: { column: "name", order: "dsc" },
-  });
-  return <></>;
+  const { data: tableData, error: tableError } = await supabase.from("image-metadata").select("imgId");
+
+  return (
+    <>
+      {tableData?.map((image) => {
+        return <PhotoDisplay imageId={image.imgId} />;
+      })}
+    </>
+  );
 }
