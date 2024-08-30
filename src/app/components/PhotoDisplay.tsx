@@ -23,7 +23,7 @@ export default async function PhotoDisplay(
 
 	let altText = "Photo including " + tags;
 	return (
-		<div className="flex space-x-4 m-8 rounded-3xl bg-white/10 p-5 border-2 border-white/25">
+		<div className={styles["image-card"]}>
 			<Image
 				src={props.imageId}
 				width={1024}
@@ -31,9 +31,9 @@ export default async function PhotoDisplay(
 				alt={altText}
 				className={styles["image"]}
 			/>
-			<div className="flex flex-auto flex-col justify-between w-96">
+			<div className={styles["text-container"]}>
 				<div>
-					<h1 className="text-5xl">{title}</h1>
+					<h1 className="text-5xl mb-2">{title}</h1>
 					<p>by {author}</p>
 					<br />
 					<h2 className="text-3xl">Camera Info:</h2>
