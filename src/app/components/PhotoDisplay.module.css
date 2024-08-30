@@ -32,11 +32,6 @@
 	min-width: 25vw;
 }
 
-.tag-container {
-	list-style: circle;
-	padding-left: 40px;
-}
-
 .info-container {
 	display: flex;
 	flex: auto;

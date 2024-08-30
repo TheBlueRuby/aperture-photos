@@ -3,6 +3,7 @@ import getImageData from "@/getImageData";
 import styles from "./PhotoDisplay.module.css";
 import { supabase } from "@/supabase";
 import CameraInfoCard from "./CameraInfoCard";
+import TagCard from "./TagCard";
 
 export default async function PhotoDisplay(
 	props: Readonly<{ imageId: string, key: string }>
@@ -48,15 +49,13 @@ export default async function PhotoDisplay(
 					</div>
 					<br />
 					<h2 className="text-2xl">Tags:</h2>
-					<ul className={styles["tag-container"]}>
+					<div className={styles["meta-container"]}>
 						{tags.map((tag) => {
 							return (
-								<li key={tag} className={styles["tag"]}>
-									{tag}
-								</li>
+								<TagCard key={tag} tag={tag}></TagCard>
 							);
 						})}
-					</ul>
+					</div>
 				</div>
 				<a
 					href={"/photo/" + props.imageId}
