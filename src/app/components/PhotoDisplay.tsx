@@ -29,9 +29,9 @@ export default async function PhotoDisplay(
 				width={1024}
 				height={768}
 				alt={altText}
-				className="flex-auto rounded-3xl h-auto"
+				className={styles["image"]}
 			/>
-			<div className="flex flex-auto flex-col justify-between">
+			<div className="flex flex-auto flex-col justify-between w-96">
 				<div>
 					<h1 className="text-5xl">{title}</h1>
 					<p>by {author}</p>

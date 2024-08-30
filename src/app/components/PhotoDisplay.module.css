@@ -9,3 +9,19 @@
 	list-style: circle;
 	padding-left: 40px;
 }
+
+.info-container {
+	display: flex;
+	flex: auto;
+	flex-direction: column;
+	justify-content: space-between;
+
+}
+
+.image {
+	flex: auto;
+	border-radius: 1.5rem;
+	overflow: auto;
+	max-height: 768px;
+	object-fit: cover;
+}
