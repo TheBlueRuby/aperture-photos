@@ -1,8 +1,11 @@
 .meta-container {
-	padding-left: 40px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
+
 .meta-container > * {
-	font-size: large;
+	margin: 0.25rem;
 }
 
 .image-card {
@@ -14,12 +17,6 @@
 	background-color: rgba(255, 255, 255, 0.1);
 	padding: 1.25rem;
 	border: 2px solid rgba(255, 255, 255, 0.25);
-}
-
-@media only screen and (max-width: 1200px) {
-	.image-card {
-		flex-direction: column;
-	}
 }
 
 .image-card > * {
@@ -55,4 +52,14 @@
 	max-height: 768px;
 	width: auto;
 	object-fit: cover;
+}
+
+@media only screen and (max-width: 1200px) {
+	.image-card {
+		flex-direction: column;
+	}
+	.text-container {
+		max-width: 100%;
+		min-width: 100%;
+	}
 }

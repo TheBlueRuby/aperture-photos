@@ -2,6 +2,7 @@ import Image from "next/image";
 import getImageData from "@/getImageData";
 import styles from "./PhotoDisplay.module.css";
 import { supabase } from "@/supabase";
+import CameraInfoCard from "./CameraInfoCard";
 
 export default async function PhotoDisplay(
 	props: Readonly<{ imageId: string, key: string }>
@@ -37,14 +38,14 @@ export default async function PhotoDisplay(
 					<p>by {author}</p>
 					<br />
 					<h2 className="text-3xl">Camera Info:</h2>
-					<ul className={styles["meta-container"]}>
-						<li>Camera: {imgData.Model}</li>
-						<li>Lens: {imgData.Lens}</li>
-						<li>Focal Length: {imgData.FocalLength}</li>
-						<li>Aperture: {imgData.ApertureValue}</li>
-						<li>Shutter Speed: {imgData.ShutterSpeed}</li>
-						<li>ISO: {imgData.ISO}</li>
-					</ul>
+					<div className={styles["meta-container"]}>
+						<CameraInfoCard label="Camera" value={imgData.Model} />
+						<CameraInfoCard label="Lens" value={imgData.Lens} />
+						<CameraInfoCard label="Focal Length" value={imgData.FocalLength} />
+						<CameraInfoCard label="Aperture" value={imgData.ApertureValue} />
+						<CameraInfoCard label="Shutter Speed" value={imgData.ShutterSpeed} />
+						<CameraInfoCard label="ISO" value={imgData.ISO} />
+					</div>
 					<br />
 					<h2 className="text-2xl">Tags:</h2>
 					<ul className={styles["tag-container"]}>
