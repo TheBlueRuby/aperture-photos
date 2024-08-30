@@ -23,13 +23,13 @@ export default async function PhotoDisplay(
 
 	let altText = "Photo including " + tags;
 	return (
-		<div className="flex space-x-4 m-8 rounded-3xl bg-white/10 p-5">
+		<div className="flex space-x-4 m-8 rounded-3xl bg-white/10 p-5 border-2 border-white/25">
 			<Image
 				src={props.imageId}
 				width={1024}
 				height={768}
 				alt={altText}
-				className="flex-auto rounded-3xl"
+				className="flex-auto rounded-3xl h-auto"
 			/>
 			<div className="flex flex-auto flex-col justify-between">
 				<div>
