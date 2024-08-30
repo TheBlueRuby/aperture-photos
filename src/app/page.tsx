@@ -4,7 +4,9 @@ import PhotoDisplay from "./components/PhotoDisplay";
 export default async function Home() {
 	const { data: tableData } = await supabase
 		.from("image-metadata")
-		.select("id");
+		.select("id")
+		.limit(10)
+		.order("uploaded_at", { ascending: false });
 	console.log(tableData);
 	return (
 		<>
