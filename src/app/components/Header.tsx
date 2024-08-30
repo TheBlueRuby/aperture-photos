@@ -7,9 +7,9 @@ export default function Header() {
 				<img src="/aperture.svg" alt="Aperture Logo" className={styles.logo}/>
 				<h1 className={styles.title}>Aperture</h1>
 			</a>
-			<p className={styles.sourceButton}>
+			<a href="https://github.com/theblueruby/aperture-photos/" className={styles.sourceButton}>
 				Source
-			</p>
+			</a>
 		</div>
 	);
 }
