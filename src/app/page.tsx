@@ -11,7 +11,7 @@ export default async function Home() {
 	return (
 		<>
 			{tableData?.map((image) => {
-				return <PhotoDisplay imageId={image.id} />;
+				return <PhotoDisplay key={image.id} imageId={image.id} />;
 			})}
 		</>
 	);

@@ -4,7 +4,7 @@ import styles from "./PhotoDisplay.module.css";
 import { supabase } from "@/supabase";
 
 export default async function PhotoDisplay(
-	props: Readonly<{ imageId: string }>
+	props: Readonly<{ imageId: string, key: string }>
 ) {
 	let imgData = await getImageData(props.imageId);
 

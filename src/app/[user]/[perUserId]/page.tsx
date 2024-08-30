@@ -8,5 +8,5 @@ export default async function Page({
 }>) {
 	let imageId = await getImageId(params.user, params.perUserId);
 
-	return <PhotoDisplay imageId={imageId} />;
+	return <PhotoDisplay imageId={imageId} key={imageId} />;
 }

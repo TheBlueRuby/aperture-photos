@@ -5,5 +5,5 @@ export default function Page({
 }: Readonly<{
 	params: { id: string };
 }>) {
-	return <PhotoDisplay imageId={params.id} />;
+	return <PhotoDisplay imageId={params.id} key={params.id} />;
 }
