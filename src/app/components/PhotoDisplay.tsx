@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { supabase } from "@/supabase";
+import { supabase } from "@/supabase/client";
 import { getImgUrl } from "@/image-loader";
 
 import styles from "./PhotoDisplay.module.css";

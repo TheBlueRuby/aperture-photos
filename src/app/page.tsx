@@ -1,4 +1,4 @@
-import { supabase } from "@/supabase";
+import { supabase } from "@/supabase/client";
 import PhotoDisplay from "./components/PhotoDisplay";
 
 export default async function Home() {
