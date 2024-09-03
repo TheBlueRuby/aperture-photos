@@ -1,14 +1,18 @@
 "use client";
-import styles from "./UploadArea.module.css";
 
-export default async function UploadArea() {
+import styles from "./UploadArea.module.css";
+import handleUpload from "./actions";
+
+export default function UploadArea() {
 	return (
-		<form
-			action="/api/upload"
-			method="post"
-			encType="multipart/form-data"
-			className={styles.uploadForm}
-		>
+		<form action={handleUpload} className={styles.uploadForm}>
+			<input
+				type="text"
+				name="title"
+				id="titleInput"
+				placeholder="Photo Title"
+				className={styles.textInput}
+			/>
 			<div
 				className={styles.uploadArea}
 				onClick={() => {
@@ -26,6 +30,13 @@ export default async function UploadArea() {
 					Click to upload a photo
 				</label>
 			</div>
+			<input
+				type="text"
+				name="tags"
+				id="tags"
+				placeholder="Comma-Seperated Photo Tags (e.g aviation,cars,landscapes)"
+				className={styles.textInput}
+			/>
 			<button type="submit" className={styles.uploadButton}>
 				Upload
 			</button>

@@ -33,3 +33,13 @@
 	border-radius: 5px;
 	cursor: pointer;
 }
+
+.textInput {
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 2px solid rgba(255, 255, 255, 0.25);
+	border-radius: 1.5rem;
+	padding: 0.5rem;
+	color: #666;
+	font-size: 1.5rem;
+	width: 75%;
+}
