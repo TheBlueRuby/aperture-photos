@@ -1,8 +1,8 @@
-"use client";
-
 import getUserName from "@/getUserName";
 import styles from "./Header.module.css";
-import { supabase } from "@/supabase/client";
+import { createClient } from "@/supabase/server";
+
+const supabase = createClient();
 
 export default async function Header() {
 	const { data, error } = await supabase.auth.getUser();
@@ -16,7 +16,7 @@ export default async function Header() {
 				/>
 				<h1 className={styles.title}>Aperture</h1>
 			</a>
-			<div className="flex flex-row align-center gap-1">
+			<div className="flex flex-row align-center">
 				{error || !data?.user ? (
 					<a href="/login" className={styles.button}>
 						Login
@@ -24,18 +24,23 @@ export default async function Header() {
 				) : (
 					<>
 						<p className={styles.user}>{await getUserName()}</p>
-						<a href="/signout" className={styles.button}>
+						<a href="/signout" className={styles.logoutButton}>
 							Logout
+						</a>
+						<div className="w-2"></div>
+						<a href="/upload" className={styles.button}>
+							Upload
 						</a>
 					</>
 				)}
 
 				<div className="w-2"></div>
+				<a href="/refresh" className={styles.button}>↻</a>
 				<a
 					href="https://github.com/theblueruby/aperture-photos/"
 					className={styles.button}
 				>
-					Source
+					{"</>"}
 				</a>
 			</div>
 		</div>

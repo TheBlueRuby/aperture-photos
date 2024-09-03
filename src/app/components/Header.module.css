@@ -34,11 +34,32 @@
 	cursor: pointer;
 }
 
+.logoutButton {
+	background-color: #333;
+	color: #fff;
+	padding: 0.5rem 1rem 0.5rem 0.5rem;
+	border: #444 1px solid;
+	border-left: none;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	cursor: pointer;
+}
+
 .user {
 	background-color: #333;
 	color: #fff;
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 0.5rem 0.5rem 1rem;
 	border: #444 1px solid;
-	border-radius: 2rem;
+	border-top-left-radius: 2rem;
+	border-bottom-left-radius: 2rem;
+	border-right-style: none;
 	cursor: pointer;
+}
+
+.user:hover {
+	background-color: #444;
+}
+
+.logoutButton:hover {
+	background-color: #444;
 }
