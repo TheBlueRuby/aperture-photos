@@ -37,15 +37,18 @@
 	flex: auto;
 	flex-direction: column;
 	justify-content: space-between;
-
 }
 
-.image {
+.image-link {
 	flex: auto;
-	border-radius: 1.5rem;
-	overflow: auto;
 	max-height: 768px;
 	width: auto;
+}
+.image {
+	border-radius: 1.5rem;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
 	object-fit: cover;
 }
 

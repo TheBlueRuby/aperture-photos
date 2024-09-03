@@ -1,12 +1,17 @@
 import Image from "next/image";
-import getImageData from "@/getImageData";
-import styles from "./PhotoDisplay.module.css";
+import Link from "next/link";
+
 import { supabase } from "@/supabase";
+import { getImgUrl } from "@/image-loader";
+
+import styles from "./PhotoDisplay.module.css";
+
+import getImageData from "@/getImageData";
 import CameraInfoCard from "./CameraInfoCard";
 import TagCard from "./TagCard";
 
 export default async function PhotoDisplay(
-	props: Readonly<{ imageId: string, key: string }>
+	props: Readonly<{ imageId: string; key: string }>
 ) {
 	let imgData = await getImageData(props.imageId);
 
@@ -26,13 +31,18 @@ export default async function PhotoDisplay(
 	let altText = "Photo including " + tags;
 	return (
 		<div className={styles["image-card"]}>
-			<Image
-				src={props.imageId}
-				width={1024}
-				height={768}
-				alt={altText}
-				className={styles["image"]}
-			/>
+			<Link
+				href={getImgUrl(props.imageId)}
+				className={styles["image-link"]}
+			>
+				<Image
+					src={props.imageId}
+					width={1024}
+					height={768}
+					alt={altText}
+					className={styles["image"]}
+				/>
+			</Link>
 			<div className={styles["text-container"]}>
 				<div>
 					<h1 className="text-5xl mb-2">{title}</h1>
@@ -42,18 +52,25 @@ export default async function PhotoDisplay(
 					<div className={styles["meta-container"]}>
 						<CameraInfoCard label="Camera" value={imgData.Model} />
 						<CameraInfoCard label="Lens" value={imgData.Lens} />
-						<CameraInfoCard label="Focal Length" value={imgData.FocalLength} />
-						<CameraInfoCard label="Aperture" value={imgData.ApertureValue} />
-						<CameraInfoCard label="Shutter Speed" value={imgData.ShutterSpeed} />
+						<CameraInfoCard
+							label="Focal Length"
+							value={imgData.FocalLength}
+						/>
+						<CameraInfoCard
+							label="Aperture"
+							value={imgData.ApertureValue}
+						/>
+						<CameraInfoCard
+							label="Shutter Speed"
+							value={imgData.ShutterSpeed}
+						/>
 						<CameraInfoCard label="ISO" value={imgData.ISO} />
 					</div>
 					<br />
 					<h2 className="text-2xl">Tags:</h2>
 					<div className={styles["meta-container"]}>
 						{tags.map((tag) => {
-							return (
-								<TagCard key={tag} tag={tag}></TagCard>
-							);
+							return <TagCard key={tag} tag={tag}></TagCard>;
 						})}
 					</div>
 				</div>
@@ -78,7 +95,7 @@ async function getColumnFromImage(
 		.select(column)
 		.eq("id", imageId);
 	if (data != null && data.length > 0) {
-		columnContents = data[0][column as keyof typeof data[0]];
+		columnContents = data[0][column as keyof (typeof data)[0]];
 	}
 
 	return columnContents;

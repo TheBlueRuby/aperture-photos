@@ -7,7 +7,6 @@ export default async function Home() {
 		.select("id")
 		.limit(10)
 		.order("uploaded_at", { ascending: false });
-	console.log(tableData);
 	return (
 		<>
 			{tableData?.map((image) => {

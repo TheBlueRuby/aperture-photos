@@ -31,7 +31,7 @@ function cameraData(
 		ret.Lens = Lens;
 	}
 	if (ApertureValue != undefined) {
-		ret.ApertureValue = "f" + ApertureValue;
+		ret.ApertureValue = "ƒ/" + ApertureValue;
 	}
 	if (ShutterSpeed != undefined) {
 		ret.ShutterSpeed = "1/" + Math.round(1 / parseFloat(ShutterSpeed));
