@@ -1,8 +1,8 @@
+"use client";
+
 import getUserName from "@/getUserName";
 import styles from "./Header.module.css";
-import { createClient } from "@/supabase/server";
-
-const supabase = createClient();
+import { supabase } from "@/supabase/client";
 
 export default async function Header() {
 	const { data, error } = await supabase.auth.getUser();
