@@ -1,6 +1,6 @@
 "use server";
 
-import { createClient } from "@/supabase/client";
+import { createClient } from "@/supabase/server";
 
 export default async function handleUpload(formData: FormData) {
 	const supabase = createClient();
