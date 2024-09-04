@@ -1,4 +1,4 @@
-import { createClient } from "@/supabase/client";
+import { createClient } from "@/supabase/noauth";
 import PhotoDisplay from "./components/PhotoDisplay";
 
 export default async function Home() {

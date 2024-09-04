@@ -1,4 +1,6 @@
-import { createClient } from "./supabase/client";
+"use server";
+
+import { createClient } from "./supabase/noauth";
 
 export default async function getImageId(
 	userId: string,

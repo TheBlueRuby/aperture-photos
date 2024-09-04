@@ -1,7 +1,7 @@
-import { createClient } from "@/supabase/client";
+"use server";
+import { createClient } from "@/supabase/server";
 
-
-export default async function getUserName(): Promise<string> {
+export default async function getUserDisplayName(): Promise<string> {
 	const supabase = createClient();
 	const { data, error } = await supabase.auth.getUser();
 	if (error) {
@@ -11,8 +11,10 @@ export default async function getUserName(): Promise<string> {
 		.from("profiles")
 		.select("displayname")
 		.eq("id", data.user.id);
+
 	if (!displayname || error2) {
 		return "";
 	}
+
 	return displayname[0].displayname.toString();
 }

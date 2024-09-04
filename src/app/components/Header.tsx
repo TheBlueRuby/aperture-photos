@@ -1,11 +1,8 @@
-import getUserName from "@/getUserName";
+import getUserDisplayName from "@/getUserData";
 import styles from "./Header.module.css";
-import { createClient } from "@/supabase/client";
-
-const supabase = createClient();
 
 export default async function Header() {
-	const { data, error } = await supabase.auth.getUser();
+	let username = await getUserDisplayName();
 	return (
 		<div className={styles.container}>
 			<a href="/" className={styles.logoContainer}>
@@ -16,14 +13,19 @@ export default async function Header() {
 				/>
 				<h1 className={styles.title}>Aperture</h1>
 			</a>
-			<div className="flex flex-row align-center">
-				{error || !data?.user ? (
-					<a href="/login" className={styles.button}>
-						Login
-					</a>
+			<div
+				className="flex flex-row align-center"
+				suppressHydrationWarning
+			>
+				{username == "" ? (
+					<>
+						<a href="/login" className={styles.button}>
+							Login
+						</a>
+					</>
 				) : (
 					<>
-						<p className={styles.user}>{await getUserName()}</p>
+						<p className={styles.user}>{username}</p>
 						<a href="/signout" className={styles.logoutButton}>
 							Logout
 						</a>
@@ -35,7 +37,9 @@ export default async function Header() {
 				)}
 
 				<div className="w-2"></div>
-				<a href="/refresh" className={styles.button}>↻</a>
+				<a href="/refresh" className={styles.button}>
+					↻
+				</a>
 				<a
 					href="https://github.com/theblueruby/aperture-photos/"
 					className={styles.button}
