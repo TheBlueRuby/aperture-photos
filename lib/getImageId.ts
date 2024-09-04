@@ -1,9 +1,10 @@
-import { supabase } from "./supabase/client";
+import { createClient } from "./supabase/client";
 
 export default async function getImageId(
 	userId: string,
 	perUserId: string
 ): Promise<string> {
+	const supabase = createClient();
 	let { data: userUuid } = await supabase
 		.from("profiles")
 		.select("id")

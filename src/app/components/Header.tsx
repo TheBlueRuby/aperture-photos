@@ -1,6 +1,6 @@
 import getUserName from "@/getUserName";
 import styles from "./Header.module.css";
-import { createClient } from "@/supabase/server";
+import { createClient } from "@/supabase/client";
 
 const supabase = createClient();
 

@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import UploadArea from "./UploadArea";
 
-import { createClient } from "@/supabase/server";
+import { createClient } from "@/supabase/client";
 
 const supabase = createClient();
 

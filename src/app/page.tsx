@@ -1,7 +1,8 @@
-import { supabase } from "@/supabase/client";
+import { createClient } from "@/supabase/client";
 import PhotoDisplay from "./components/PhotoDisplay";
 
 export default async function Home() {
+	const supabase = createClient();
 	const { data: tableData } = await supabase
 		.from("image-metadata")
 		.select("id")

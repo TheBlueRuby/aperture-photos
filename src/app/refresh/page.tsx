@@ -1,5 +1,7 @@
-import refresh from "./actions";
+import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export default function Page() {
-	refresh();
+	revalidatePath("/", "page");
+	redirect("/");
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { supabase } from "@/supabase/client";
+import { createClient } from "@/supabase/client";
 import { getImgUrl } from "@/image-loader";
 
 import styles from "./PhotoDisplay.module.css";
@@ -13,6 +13,7 @@ import TagCard from "./TagCard";
 export default async function PhotoDisplay(
 	props: Readonly<{ imageId: string; key: string }>
 ) {
+	const supabase = createClient();
 	let imgData = await getImageData(props.imageId);
 
 	let title: string = await getColumnFromImage(props.imageId, "title");
@@ -89,6 +90,7 @@ async function getColumnFromImage(
 	imageId: string,
 	column: string
 ): Promise<any> {
+	const supabase = createClient();
 	let columnContents: any;
 	const { data } = await supabase
 		.from("image-metadata")

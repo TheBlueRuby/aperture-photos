@@ -1,11 +1,9 @@
 "use server";
 
-import { createClient } from "@/supabase/server";
-import { Dispatch, SetStateAction } from "react";
-
-const supabase = createClient();
+import { createClient } from "@/supabase/client";
 
 export default async function handleUpload(formData: FormData) {
+	const supabase = createClient();
 	let photo = formData.get("photo") as File;
 	console.log("Uploading photo... " + photo.name);
 
@@ -50,5 +48,4 @@ export default async function handleUpload(formData: FormData) {
 		owner: user.user?.id,
 		owner_upload_num: uploadNum[0].owner_upload_num + 1,
 	});
-
 }
